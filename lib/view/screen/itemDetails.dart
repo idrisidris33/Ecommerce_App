@@ -232,6 +232,15 @@ class ItemsDetails extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 100,
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  const SizedBox(
+                    height: 100,
                   )
                 ],
               ),
