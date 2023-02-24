@@ -44,10 +44,10 @@ class HomeControllerImp extends HomeController {
   String? username;
   String? useremail;
   String? userphone;
-  int? userid;
+  String? userid;
   @override
   initialData() {
-    userid = myServices.sharedPreferences.getInt("userid");
+    userid = myServices.sharedPreferences.getString("userid");
     useremail = myServices.sharedPreferences.getString("useremail");
     userphone = myServices.sharedPreferences.getString("userphone");
     username = myServices.sharedPreferences.getString("username");

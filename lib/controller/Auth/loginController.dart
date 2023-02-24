@@ -65,11 +65,11 @@ class LoginControllerImp extends LoginController {
           myServices.sharedPreferences
               .setString("userphone", response['data']["u_phone"]);
           myServices.sharedPreferences
-              .setInt("userid", response['data']["u_id"] );
+              .setString("userid", response['data']["u_id"].toString() );
           myServices.sharedPreferences.setString("step", "2");
           // data.addAll(response['data']);
           Get.offNamed(
-            AppRoute.homepage,
+            AppRoute.homeScreen,
           );
         } else {
           Get.defaultDialog(

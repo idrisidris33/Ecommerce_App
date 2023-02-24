@@ -17,6 +17,7 @@ abstract class ItemCatController extends GetxController {
 class ItemCatControllerImp extends ItemCatController {
   ItemsData itemsData = ItemsData(Get.find());
   MyServices myServices = Get.find();
+  
   StatusReqest? statusReqest;
   List categories = [];
   List items = [];

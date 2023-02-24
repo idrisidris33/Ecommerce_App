@@ -1,52 +1,59 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:ecommerce_app/data/model/itemsModel.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/constant/color.dart';
 
 class FloatActionButtonItem extends StatelessWidget {
-  const FloatActionButtonItem({super.key});
+  final ItemsModel itemsModel;
+  const FloatActionButtonItem({
+    Key? key,
+    required this.itemsModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
+      padding: const EdgeInsets.only(bottom: 6, right: 10, left: 10),
       child: Container(
-          height: 70,
+          height: 65,
           width: double.infinity,
-          decoration: BoxDecoration(
-              // color: AppColor.purple,
-              borderRadius: BorderRadius.circular(40)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MaterialButton(
-                      height: 100,
+                      height: 65,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       color: AppColor.purple,
                       onPressed: () {},
                       child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.symmetric(horizontal: 1),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Text(
-                                  "Add To Cart",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .copyWith(
-                                          fontSize: 24, color: AppColor.white),
-                                ),
+                              Text(
+                                "Add To Cart",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(
+                                        fontSize: 20, color: AppColor.white),
+                              ),
+                              const SizedBox(
+                                width: 8,
                               ),
                               InkWell(
                                 onTap: () {},
-                                child: const Icon(
-                                  Icons.favorite_outline,
+                                child: Icon(
+                                  itemsModel.favorite == 1
+                                      ? Icons.favorite
+                                      : Icons.favorite_outline,
                                   size: 50,
                                   color: AppColor.purpleSecond,
                                 ),
@@ -56,8 +63,8 @@ class FloatActionButtonItem extends StatelessWidget {
                 ],
               ),
               Container(
-                height: 95,
-                width: 115,
+                height: 80,
+                width: 98,
                 decoration: BoxDecoration(
                   color: AppColor.white,
                   border: Border.all(
@@ -66,12 +73,15 @@ class FloatActionButtonItem extends StatelessWidget {
                   // color: AppColor.greycold
                 ),
                 child: Center(
-                    child: Text(
-                  "299 \$",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontSize: 25, color: AppColor.purple),
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                  child: Text(
+                    "${itemsModel.iPrice} \$",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontSize: 22, color: AppColor.purple),
+                  ),
                 )),
               )
             ],

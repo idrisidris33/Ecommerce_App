@@ -8,11 +8,11 @@ import '../../../controller/itemCat_controller.dart';
 
 class CustomItemGrid extends GetView<ItemCatControllerImp> {
   final ItemsModel itemsModel;
-  final bool isfav;
+   
   const CustomItemGrid({
     Key? key,
     required this.itemsModel,
-    required this.isfav,
+  
   }) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class CustomItemGrid extends GetView<ItemCatControllerImp> {
                           onPressed: () {},
                           icon: Icon(
                               color: AppColor.purple,
-                              isfav == true
+                               itemsModel.favorite == 1
                                   ? Icons.favorite
                                   : Icons.favorite_border_outlined))
                     ],

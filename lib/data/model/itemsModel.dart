@@ -16,6 +16,7 @@ class ItemsModel {
   String? _cNameAr;
   String? _cImage;
   String? _cDatetime;
+  int? _favorite;
 
   ItemsModel(
       {int? iId,
@@ -34,7 +35,10 @@ class ItemsModel {
       String? cName,
       String? cNameAr,
       String? cImage,
-      String? cDatetime}) {
+      String? cDatetime,
+      int? favorite,
+      
+      }) {
     if (iId != null) {
       this._iId = iId;
     }
@@ -86,6 +90,9 @@ class ItemsModel {
     if (cDatetime != null) {
       this._cDatetime = cDatetime;
     }
+    if ( favorite != null) {
+      this._favorite = favorite;
+    }
   }
 
   int? get iId => _iId;
@@ -123,6 +130,8 @@ class ItemsModel {
   set cImage(String? cImage) => _cImage = cImage;
   String? get cDatetime => _cDatetime;
   set cDatetime(String? cDatetime) => _cDatetime = cDatetime;
+  int? get favorite => _favorite;
+  set favorite(int? favorite) => _favorite = favorite;
 
   ItemsModel.fromJson(Map<String, dynamic> json) {
     _iId = json['i_id'];
@@ -142,6 +151,7 @@ class ItemsModel {
     _cNameAr = json['c_name_ar'];
     _cImage = json['c_image'];
     _cDatetime = json['c_datetime'];
+    _favorite = json['favorite'];
   }
 
   Map<String, dynamic> toJson() {
@@ -163,6 +173,7 @@ class ItemsModel {
     data['c_name_ar'] = this._cNameAr;
     data['c_image'] = this._cImage;
     data['c_datetime'] = this._cDatetime;
+    data['favorite'] = this._favorite;
     return data;
   }
 }

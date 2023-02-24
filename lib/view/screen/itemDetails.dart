@@ -15,7 +15,9 @@ class ItemsDetails extends StatelessWidget {
     ItemsDetailsContImp controller = Get.put(ItemsDetailsContImp());
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const FloatActionButtonItem(),
+      floatingActionButton: FloatActionButtonItem(
+        itemsModel: controller.itemsModel,
+      ),
       // bottomNavigationBar:,
       body: ListView(
           scrollDirection: Axis.vertical,
@@ -24,7 +26,7 @@ class ItemsDetails extends StatelessWidget {
           children: [
             const TopImageItem(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -36,6 +38,9 @@ class ItemsDetails extends StatelessWidget {
                         .bodyLarge!
                         .copyWith(fontSize: 25, color: AppColor.purple),
                     textAlign: TextAlign.start,
+                  ),
+                  const SizedBox(
+                    height: 14,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +64,11 @@ class ItemsDetails extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 14,
+                  ),
                   const QuantityColorItem(),
+                  
                   Text(
                     translateData('${controller.itemsModel.iDiscripitonAr}',
                         '${controller.itemsModel.iDiscripiton}'),
