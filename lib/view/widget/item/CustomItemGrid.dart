@@ -8,16 +8,17 @@ import '../../../controller/itemCat_controller.dart';
 
 class CustomItemGrid extends GetView<ItemCatControllerImp> {
   final ItemsModel itemsModel;
+  final bool isfav;
   const CustomItemGrid({
     Key? key,
     required this.itemsModel,
+    required this.isfav,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Get.put(ItemCatControllerImp);
-    return    
-    ClipRRect(
+    return ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Card(
           elevation: 0,
@@ -33,8 +34,8 @@ class CustomItemGrid extends GetView<ItemCatControllerImp> {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Hero(
-                      tag: "${itemsModel.iId}",
-                      child: Image.network('${itemsModel.iImage}'))),
+                          tag: "${itemsModel.iId}",
+                          child: Image.network('${itemsModel.iImage}'))),
                   const SizedBox(
                     height: 6,
                   ),
@@ -65,9 +66,11 @@ class CustomItemGrid extends GetView<ItemCatControllerImp> {
                       ),
                       IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                               color: AppColor.purple,
-                              Icons.favorite_border_outlined))
+                              isfav == true
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined))
                     ],
                   )
                 ],

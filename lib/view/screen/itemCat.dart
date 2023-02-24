@@ -36,6 +36,7 @@ class ItemCat extends GetView<ItemCatControllerImp> {
                                 crossAxisCount: 2, childAspectRatio: 0.49),
                         itemBuilder: (BuildContext context, index) =>
                             CustomItemGrid(
+                            isfav: false,
                                 itemsModel: ItemsModel.fromJson(
                                     controller.items[index]))))
               ],

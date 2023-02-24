@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/class_package/statusreqest.dart';
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/function/handlingdatacontroller.dart';
+import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/items.dart';
 import 'package:ecommerce_app/data/model/itemsModel.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ abstract class ItemCatController extends GetxController {
 
 class ItemCatControllerImp extends ItemCatController {
   ItemsData itemsData = ItemsData(Get.find());
+  MyServices myServices = Get.find();
   StatusReqest? statusReqest;
   List categories = [];
   List items = [];
@@ -47,7 +49,8 @@ class ItemCatControllerImp extends ItemCatController {
   getItem(idCat) async {
     items.clear();
     statusReqest = StatusReqest.loading;
-    var response = await itemsData.getData(idCat);
+    var response = await itemsData.getData(
+        idCat, myServices.sharedPreferences.getString("userid")!);
     print("=============================== Controller $response ");
     statusReqest = handlingData(response);
     if (StatusReqest.success == statusReqest) {
