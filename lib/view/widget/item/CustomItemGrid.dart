@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:ecommerce_app/controller/favorite_Controller.dart';
 import 'package:ecommerce_app/core/function/translateData.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/core/constant/color.dart';
@@ -8,11 +9,10 @@ import '../../../controller/itemCat_controller.dart';
 
 class CustomItemGrid extends GetView<ItemCatControllerImp> {
   final ItemsModel itemsModel;
-   
+
   const CustomItemGrid({
     Key? key,
     required this.itemsModel,
-  
   }) : super(key: key);
 
   @override
@@ -64,13 +64,23 @@ class CustomItemGrid extends GetView<ItemCatControllerImp> {
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14, color: AppColor.purpleSecond),
                       ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                              color: AppColor.purple,
-                               itemsModel.favorite == 1
-                                  ? Icons.favorite
-                                  : Icons.favorite_border_outlined))
+                      GetBuilder<FavoriteController>(
+                        builder: (controller) => IconButton(
+                            onPressed: () {
+                              if (controller.isFav[itemsModel.iId] == 1) {
+                                controller.setFavo(itemsModel.iId!, 0);
+                                controller.removefav(itemsModel.iId);
+                              } else {
+                                controller.setFavo(itemsModel.iId!, 1);
+                                controller.addfav(itemsModel.iId);
+                              }
+                            },
+                            icon: Icon(
+                                color: AppColor.purple,
+                                controller.isFav[itemsModel.iId] == 1
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_outlined)),
+                      )
                     ],
                   )
                 ],

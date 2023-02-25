@@ -11,18 +11,19 @@ abstract class ItemCatController extends GetxController {
   selecteChange(int val, String onCatchang);
   getItem(String idCat);
   gotoItemDetail(ItemsModel itemsModel);
-  // onchangePage(value, String onCatchang);
+  // setFavo(int itemsid, int val);
 }
 
 class ItemCatControllerImp extends ItemCatController {
   ItemsData itemsData = ItemsData(Get.find());
   MyServices myServices = Get.find();
-  
+
   StatusReqest? statusReqest;
   List categories = [];
   List items = [];
   int? selectedCat;
   String? catId;
+  // Map isFav = {};
 
   @override
   void onInit() {
@@ -72,10 +73,8 @@ class ItemCatControllerImp extends ItemCatController {
   }
 
   // @override
-  // onchangePage(value, onCatchang) {
-  //   selectedCat = value;
-  //   catId = onCatchang.toString();
-  //   getItem(catId!);
+  // setFavo(itemsid, val) {
+  //   isFav[itemsid] = val;
   //   update();
   // }
 }

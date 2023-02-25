@@ -7,12 +7,15 @@ import 'package:ecommerce_app/view/widget/item/listItemCat.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controller/favorite_Controller.dart';
+
 class ItemCat extends GetView<ItemCatControllerImp> {
   const ItemCat({super.key});
 
   @override
   Widget build(BuildContext context) {
     Get.put(ItemCatControllerImp());
+    FavoriteController controllerFav = Get.put(FavoriteController());
     return Scaffold(
       body: Padding(
           padding: const EdgeInsets.all(15),
@@ -34,11 +37,13 @@ class ItemCat extends GetView<ItemCatControllerImp> {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2, childAspectRatio: 0.49),
-                        itemBuilder: (BuildContext context, index) =>
-                            CustomItemGrid(
-                        
-                                itemsModel: ItemsModel.fromJson(
-                                    controller.items[index]))))
+                        itemBuilder: (BuildContext context, index) {
+                          controllerFav.isFav[controller.items[index]['i_id']] =
+                              controller.items[index]['favorite'];
+                          return CustomItemGrid(
+                              itemsModel:
+                                  ItemsModel.fromJson(controller.items[index]));
+                        }))
               ],
             ),
           )),
