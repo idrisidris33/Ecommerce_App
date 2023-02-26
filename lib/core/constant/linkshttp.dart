@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.1.33/ecommerc_PHP";
+  static const String server = "http://192.168.1.34/ecommerc_PHP";
 
   //10.0.2.2
   //192.168.1.37   BOOB I
@@ -21,4 +21,5 @@ class AppLink {
   static const String items = "$server/items/itemGet.php";
   static const String removefav = "$server/favorite/removefav.php";
   static const String addfav = "$server/favorite/addfav.php";
+  static const String viewfav = "$server/favorite/viewFavorite.php";
 }

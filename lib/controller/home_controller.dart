@@ -9,11 +9,11 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController {
   initialData();
   getdata();
+  gotofavorite();
   gotoItem(
     List categories,
     int selectedCat,
     String idCat,
-  
   );
 }
 
@@ -83,13 +83,16 @@ class HomeControllerImp extends HomeController {
     categories,
     selectedCat,
     idCat,
-    
   ) {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
       "selectedCat": selectedCat,
-      "idCat":idCat
-      
+      "idCat": idCat
     });
+  }
+
+  @override
+  gotofavorite() {
+    Get.toNamed(AppRoute.favoritView);
   }
 }

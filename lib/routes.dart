@@ -13,6 +13,7 @@ import 'package:ecommerce_app/view/screen/auth/forgetPassword/ressetpassword.dar
 import 'package:ecommerce_app/view/screen/auth/signup.dart';
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/verifycode.dart';
 import 'package:ecommerce_app/view/screen/auth/succes_signup.dart';
+import 'package:ecommerce_app/view/screen/favoriteView.dart';
 import 'package:ecommerce_app/view/screen/itemCat.dart';
 import 'package:ecommerce_app/view/screen/itemDetails.dart';
 import 'package:ecommerce_app/view/screen/onboarding.dart';
@@ -61,4 +62,5 @@ List<GetPage<dynamic>>? getroutes = [
   GetPage(name: AppRoute.homeScreen, page: () => const HomeScreen()),
   GetPage(name: AppRoute.items, page: () => const ItemCat()),
   GetPage(name: AppRoute.itemsDetails, page: () => const ItemsDetails()),
+  GetPage(name: AppRoute.favoritView, page: () =>   FavoriteView()),
 ];

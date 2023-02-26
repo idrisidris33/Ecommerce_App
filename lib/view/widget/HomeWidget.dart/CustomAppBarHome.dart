@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/core/constant/color.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final void Function()? onpressedIcon;
+  final void Function()? onpressedNotivication;
+  final void Function()? onpressedFavorite;
   final void Function()? onpressedSearch;
   final String hintText;
   const CustomAppBar({
     Key? key,
     required this.onpressedSearch,
-    required this.onpressedIcon,
+    required this.onpressedFavorite,
+    required this.onpressedNotivication,
     required this.hintText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-    width: double.infinity,
+      width: double.infinity,
       // margin: const EdgeInsets.symmetric(horizontal: 10),
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(children: [
@@ -56,9 +58,22 @@ class CustomAppBar extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: AppColor.purple),
             child: IconButton(
-                onPressed: onpressedIcon,
+                onPressed: onpressedNotivication,
                 icon: const Icon(
                     color: Colors.white, Icons.notifications_active_outlined)),
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5), color: AppColor.purple),
+            child: IconButton(
+                onPressed: onpressedFavorite,
+                icon: const Icon(color: Colors.white, Icons.favorite_outline)),
           ),
         )
       ]),

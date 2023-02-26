@@ -25,7 +25,8 @@ class ItemCat extends GetView<ItemCatControllerImp> {
               children: [
                 CustomAppBar(
                     onpressedSearch: () {},
-                    onpressedIcon: () {},
+                    onpressedNotivication: () {},
+                    onpressedFavorite: () {},
                     hintText: '1000'.tr),
                 const ItemCatLIst(),
                 HandlingDataView(

@@ -30,7 +30,10 @@ class HomePage extends StatelessWidget {
                     children: [
                       CustomAppBar(
                           onpressedSearch: () {},
-                          onpressedIcon: () {},
+                          onpressedNotivication: () {},
+                          onpressedFavorite: () {
+                            controller.gotofavorite();
+                          },
                           hintText: '1000'.tr),
                       const CustomCard(
                         titleCard: 'A summer surprise',

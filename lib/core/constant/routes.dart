@@ -14,4 +14,5 @@ class AppRoute {
   static const String homeScreen = "/homescreen";
    static const String items = "/items";
    static const String itemsDetails = "/itemsDetails";
+   static const String favoritView = "/favoritView";
 }
