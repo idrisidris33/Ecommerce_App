@@ -13,4 +13,13 @@ class ViewFavoriteData {
 
     return response.fold((l) => l, (r) => r);
   }
+  removefav(
+    String favroiteid,
+  ) async {
+    var response = await crud.postData(AppLink.removefavfromlist, {
+      "favId": favroiteid,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

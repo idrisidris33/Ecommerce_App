@@ -6,12 +6,9 @@ import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:ecommerce_app/data/model/itemsModel.dart';
 import 'package:get/get.dart';
 import '../../../controller/itemCat_controller.dart';
-import '../../../data/model/favoriteViewModel.dart';
 
 class CustomItemGrid extends GetView<ItemCatControllerImp> {
   final ItemsModel itemsModel;
-  
-
 
   const CustomItemGrid({
     Key? key,

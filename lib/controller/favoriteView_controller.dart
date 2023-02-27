@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/model/favoriteViewModel.dart';
 import 'package:get/get.dart';
@@ -27,13 +28,28 @@ class FavoriteViewController extends GetxController {
         List responsedata = (response['data']);
         itemsfav.addAll(responsedata.map((e) => FavoriteViewModel.fromJson(e)));
         // Get.snackbar("Adding", "This items is alredy add in your favorite");
-        // items.addAll(response['data']);
       } else {
         statusReqest = StatusReqest.failure;
       }
       update();
       // End
     }
+  }
+
+  removeFav(String favroiteid) {
+    // itemsfav.clear();
+    // ignore: unrelated_type_equality_checks
+    itemsfav.removeWhere((element) => element.favId == favroiteid);
+    
+    var response = viewfavoriteData.removefav(favroiteid);
+
+    update();
+
+    // End
+  }
+
+  gotoDetail() {
+    Get.toNamed(AppRoute.itemsDetails);
   }
 
   @override

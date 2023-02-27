@@ -53,6 +53,7 @@ class FavoriteController extends GetxController {
       } else {
         statusReqest = StatusReqest.failure;
       }
+      update();
       // End
     }
   }
