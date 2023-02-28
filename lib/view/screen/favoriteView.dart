@@ -31,7 +31,7 @@ class FavoriteView extends GetView<FavoriteViewController> {
                         itemCount: controller.itemsfav.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 0.6, crossAxisCount: 2),
+                                childAspectRatio: 0.5, crossAxisCount: 2),
                         itemBuilder: (context, index) {
                           return
                               //  Text("${controller.itemsfav[index].iName}");

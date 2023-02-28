@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/class_package/HandlingData_view.dart';
+import 'package:ecommerce_app/view/widget/auth/custombottonauth.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:ecommerce_app/view/widget/auth/logoauth.dart';
 import '../../../controller/Auth/Verify_CodeSignUp.dart';
@@ -32,6 +33,7 @@ class VerifyCodeSignUp extends StatelessWidget {
               customtitleauth(
                 title: '24'.tr,
               ),
+              Text('${controller.email}'),
               custombodyauth(body: "255".tr),
               OtpTextField(
                 borderRadius: BorderRadius.circular(15),
@@ -70,6 +72,12 @@ class VerifyCodeSignUp extends StatelessWidget {
               //     controller.goToSuccessSignUp();
               //   },
               // ),
+
+              CustombottonAuth(
+                  title: "Resend Code",
+                  onPressed: () {
+                    controller.resendccode();
+                  }),
               const SizedBox(
                 height: 22,
               ),

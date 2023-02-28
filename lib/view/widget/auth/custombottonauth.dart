@@ -8,7 +8,7 @@ class CustombottonAuth extends StatelessWidget {
   const CustombottonAuth({
     Key? key,
     required this.title,
-    this.onPressed,
+    required this.onPressed,
   }) : super(key: key);
 
   @override

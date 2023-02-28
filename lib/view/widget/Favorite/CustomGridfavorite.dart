@@ -29,29 +29,6 @@ class CustomGridFavorite extends GetView<FavoriteViewController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      // InkWell(
-                      // onTap: (){
-                      //    controller.removeFav( favoriteViewModel.favId.toString() );
-
-                      // },
-                      //   child: Container(
-                      //   height: 25,
-                      //   width: 130,
-
-                      //   decoration: BoxDecoration( color: Colors.redAccent,borderRadius: BorderRadius.circular(15)),
-                      //     child:  Center(child: Text("Remove",
-                      //       style: Theme.of(context)
-                      //           .textTheme
-                      //           .displayLarge!
-                      //           .copyWith(fontSize: 12,color: AppColor.white),
-                      //     )),
-                      // )),
-                    ],
-                  ),
                   const SizedBox(
                     height: 8,
                   ),
@@ -91,35 +68,38 @@ class CustomGridFavorite extends GetView<FavoriteViewController> {
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontSize: 14, color: AppColor.purpleSecond),
                       ),
-                      IconButton(
-                          onPressed: () {
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                          onTap: () {
                             controller
                                 .removeFav(favoriteViewModel.favId.toString());
                           },
-                          icon: Icon(
-                            Icons.delete_outline_outlined,
-                            size: 50,
-                            color: AppColor.purple,
-                          ))
-                      // GetBuilder<FavoriteController>(
-                      //   builder: (controller) => IconButton(
-                      //       onPressed: () {
-                      //         if (controller.isFav[favoriteViewModel.iId] == 1) {
-                      //           controller.setFavo(favoriteViewModel.iId!, 0);
-                      //           controller.removefav(favoriteViewModel.iId);
-                      //         } else {
-                      //           controller.setFavo(favoriteViewModel.iId!, 1);
-                      //           controller.addfav(favoriteViewModel.iId);
-                      //         }
-                      //       },
-                      //       icon: Icon(
-                      //           color: AppColor.purple,
-                      //           controller.isFav[favoriteViewModel.iId] == 1
-                      //               ? Icons.favorite
-                      //               : Icons.favorite_border_outlined)),
-                      // )
+                          child: Container(
+                            height: 25,
+                            width: 130,
+                            decoration: BoxDecoration(
+                                color: Colors.redAccent,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                                child: Text(
+                              "Remove",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge!
+                                  .copyWith(
+                                      fontSize: 12, color: AppColor.white),
+                            )),
+                          )),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

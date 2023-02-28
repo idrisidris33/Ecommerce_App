@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/function/handlingdatacontroller.dart';
-import '../../data/datasource/remote/forgetPassword/verfiyCode.dart';
+import '../../data/datasource/remote/forgetPassword/verfiyCodeData.dart';
 
 abstract class VerfyCodeControlller extends GetxController {
   verfitCode(String verifycodepassword);

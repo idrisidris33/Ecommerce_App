@@ -52,25 +52,30 @@ class LoginControllerImp extends LoginController {
         email.text,
         password.text,
       );
-      print(
-          "/////////////===============${response["data"]} ===================////////////");
+      // print(
+      //     "/////////////===============${response["data"]} ===================////////////");
       statusReqest = handlingData(response);
       update();
       if (StatusReqest.success == statusReqest) {
         if (response['status'] == 'success') {
-          myServices.sharedPreferences
-              .setString("username", response['data']["u_name"]);
-          myServices.sharedPreferences
-              .setString("useremail", response['data']["u_email"]);
-          myServices.sharedPreferences
-              .setString("userphone", response['data']["u_phone"]);
-          myServices.sharedPreferences
-              .setString("userid", response['data']["u_id"].toString() );
-          myServices.sharedPreferences.setString("step", "2");
-          // data.addAll(response['data']);
-          Get.offNamed(
-            AppRoute.homeScreen,
-          );
+          if (response['data']["u_approve"] == 1) {
+            myServices.sharedPreferences
+                .setString("username", response['data']["u_name"]);
+            myServices.sharedPreferences
+                .setString("useremail", response['data']["u_email"]);
+            myServices.sharedPreferences
+                .setString("userphone", response['data']["u_phone"]);
+            myServices.sharedPreferences
+                .setString("userid", response['data']["u_id"].toString());
+            myServices.sharedPreferences.setString("step", "2");
+            // data.addAll(response['data']);
+            Get.offNamed(
+              AppRoute.homeScreen,
+            );
+          } else {
+            Get.toNamed(AppRoute.verifycodesignup,
+                arguments: {"email": email.text});
+          }
         } else {
           Get.defaultDialog(
               title: "Warning",

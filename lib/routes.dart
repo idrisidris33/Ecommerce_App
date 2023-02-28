@@ -3,7 +3,7 @@ import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/middleware/mymiddlewar.dart';
 import 'package:ecommerce_app/view/screen/HomeScreen.dart';
 
-import 'package:ecommerce_app/view/screen/auth/VerifyCode.dart';
+import 'package:ecommerce_app/view/screen/auth/VerifyCodeSignup.dart';
 
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/succes_resetPassword.dart';
@@ -42,7 +42,7 @@ List<GetPage<dynamic>>? getroutes = [
   //     page: () => const ItemsDetails(),
   //     ),
   GetPage(
-      name: "/", page: () => const Onboarding(), middlewares: [MyMiddlWare()]),
+      name: "/", page: () => const Onboarding()),
   // name: "/", page: () => const HomeScreen(),
   GetPage(name: AppRoute.signup, page: () => const SignUp()),
   GetPage(name: AppRoute.login, page: () => const Login()),

@@ -1,4 +1,5 @@
-import 'package:ecommerce_app/data/datasource/remote/Auth/verfiycodesignup.dart';
+import 'package:ecommerce_app/data/datasource/remote/Auth/verfiycodesignupData.dart';
+import 'package:flutter/material.dart';
 import '../../core/function/handlingdatacontroller.dart';
 import 'package:ecommerce_app/core/constant/routes.dart';
 import '../../core/class_package/statusreqest.dart';
@@ -6,13 +7,14 @@ import 'package:get/get.dart';
 
 abstract class VerifyCodeCode extends GetxController {
   goToSuccessSignUp(String verifycodesignup);
+  resendccode();
 }
 
 class VerifyCodeCodeImp extends VerifyCodeCode {
   // late TextEditingController email;
   VerfiycodeSignupData verfiycodeSignupData = VerfiycodeSignupData(Get.find());
 
-  StatusReqest statusRequest=StatusReqest.none;
+  StatusReqest statusRequest = StatusReqest.none;
   String? email;
 
   @override
@@ -26,7 +28,8 @@ class VerifyCodeCodeImp extends VerifyCodeCode {
   goToSuccessSignUp(verifycodesignup) async {
     statusRequest = StatusReqest.loading;
     update();
-    var response = await verfiycodeSignupData.postdata(email!, verifycodesignup);
+    var response =
+        await verfiycodeSignupData.postdata(email!, verifycodesignup);
     statusRequest = handlingData(response);
     if (StatusReqest.success == statusRequest) {
       if (response['status'] == "success") {
@@ -38,5 +41,15 @@ class VerifyCodeCodeImp extends VerifyCodeCode {
       }
     }
     update();
+  }
+
+  @override
+  resendccode() {
+    verfiycodeSignupData.resenddata(
+      email!,
+    );
+    Get.rawSnackbar(
+        title: "Resend",
+        messageText: const Text("check your email to get new Code"));
   }
 }
