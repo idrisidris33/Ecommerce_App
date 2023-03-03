@@ -29,7 +29,12 @@ class HomePage extends StatelessWidget {
                     //  physics:const  BouncingScrollPhysics(),
                     children: [
                       CustomAppBar(
-                          onpressedSearch: () {},
+                          avatarOnTap: () {
+                            controller.gotosettings();
+                          },
+                          onpressedSearch: () {
+                          
+                          },
                           onpressedNotivication: () {},
                           onpressedFavorite: () {
                             controller.gotofavorite();
@@ -44,6 +49,9 @@ class HomePage extends StatelessWidget {
                       const ListItem(),
                       const Divider(height: 20),
                       const ItemDescount(),
+                      const SizedBox(
+                        height: 200,
+                      )
                     ],
                   ),
                 ),

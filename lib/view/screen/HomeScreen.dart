@@ -4,16 +4,62 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/homeScreen_controller.dart';
-
+import '../../controller/home_controller.dart';
+import '../widget/HomeWidget.dart/CustomAppBarHome.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) { 
-  Get.put(HomeScreenControllerImp());
+  Widget build(BuildContext context) {
+    Get.put(HomeScreenControllerImp());
+  HomeControllerImp homecontroller=  Get.put(HomeControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => Scaffold(
+    //     appBar: AppBar(
+    //     leading: IconButton(onPressed: (){}, icon:   const Icon(Icons.person) ),
+    //     // leadingWidth: 0,
+    //      title: TextFormField(
+    //         maxLines: 1,
+    //         enabled: true,
+    //         autofocus: false,
+
+    //         style: Theme.of(context).textTheme.bodyLarge,
+    //         cursorHeight: 30,
+            
+    //         decoration: InputDecoration(
+    //             // filled: true,
+    //             // fillColor: Colors.grey[200] ,
+    //             hintText: 'Search',
+    //             prefixIcon: IconButton(
+    //               icon: const Icon(Icons.search),
+    //               onPressed: (){},
+    //               color: AppColor.purple,
+    //             ),
+    //             hoverColor: AppColor.purple,
+    //             iconColor: AppColor.purple,
+    //             border: InputBorder.none
+
+    //             // border: OutlineInputBorder(
+
+    //             //     // borderSide: BorderSide.none,
+    //             //     borderRadius: BorderRadius.circular(20))
+    //                 ),
+    //       ),
+    //     actions: [
+    // IconButton(
+    //               onPressed: (){},
+    //               icon: const Icon(
+    //                   color: Colors.white,
+    //                   Icons.notifications_active_outlined)),
+    //       // CustomAppBar(
+    //       //     onpressedSearch: () {},
+    //       //     onpressedNotivication: () {},
+    //       //     onpressedFavorite: () {
+    //       //       homecontroller.gotofavorite();
+    //       //     },
+    //       //     hintText: '1000'.tr),
+    //     ]),
         floatingActionButton: FloatingActionButton(
           splashColor: AppColor.purple,
           backgroundColor: AppColor.purple,
@@ -22,7 +68,7 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
-        clipBehavior: Clip.hardEdge,
+            clipBehavior: Clip.hardEdge,
             elevation: 25,
             height: 66,
             shape: const CircularNotchedRectangle(),
@@ -45,9 +91,9 @@ class HomeScreen extends StatelessWidget {
                 })
               ],
             )),
-
         body: controller.body.elementAt(controller.currentPage),
       ),
-    );;
+    );
+    ;
   }
 }

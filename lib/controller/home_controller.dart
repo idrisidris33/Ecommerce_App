@@ -15,6 +15,7 @@ abstract class HomeController extends GetxController {
     int selectedCat,
     String idCat,
   );
+  gotosettings();
 }
 
 class HomeControllerImp extends HomeController {
@@ -23,6 +24,7 @@ class HomeControllerImp extends HomeController {
   List categories = [];
   List itemsDescount = [];
   List itemsAll = [];
+
   List svgimage = [
     AppImageAsset.svginfo,
     AppImageAsset.svgclothes,
@@ -30,6 +32,7 @@ class HomeControllerImp extends HomeController {
     AppImageAsset.svgcar,
     AppImageAsset.svgfurniture,
   ];
+
   List itemsImag = [
     AppImageAsset.jpgcamera,
     AppImageAsset.jpgcasephone,
@@ -39,12 +42,16 @@ class HomeControllerImp extends HomeController {
     AppImageAsset.jpglaptop,
     AppImageAsset.jpglenscamera,
   ];
+
   late StatusReqest statusReqest;
+
   MyServices myServices = Get.find();
+
   String? username;
   String? useremail;
   String? userphone;
   String? userid;
+
   @override
   initialData() {
     userid = myServices.sharedPreferences.getString("userid");
@@ -94,5 +101,10 @@ class HomeControllerImp extends HomeController {
   @override
   gotofavorite() {
     Get.toNamed(AppRoute.favoritView);
+  }
+
+  @override
+  gotosettings() {
+    Get.toNamed(AppRoute.settings);
   }
 }

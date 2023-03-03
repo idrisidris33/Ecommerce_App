@@ -13,7 +13,7 @@ class ItemDescount extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      width: 200,
+      // width: 250,
       child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(width: 15),
           physics: const BouncingScrollPhysics(),

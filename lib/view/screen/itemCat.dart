@@ -24,6 +24,7 @@ class ItemCat extends GetView<ItemCatControllerImp> {
               physics: const BouncingScrollPhysics(),
               children: [
                 CustomAppBar(
+                    avatarOnTap: () {},
                     onpressedSearch: () {},
                     onpressedNotivication: () {},
                     onpressedFavorite: () {},

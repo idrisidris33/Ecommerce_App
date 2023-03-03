@@ -19,6 +19,7 @@ class FavoriteView extends GetView<FavoriteViewController> {
               builder: (controller) =>
                   ListView(physics: const BouncingScrollPhysics(), children: [
                 CustomAppBar(
+                    avatarOnTap: () {},
                     onpressedSearch: () {},
                     onpressedFavorite: () {},
                     onpressedNotivication: () {},
