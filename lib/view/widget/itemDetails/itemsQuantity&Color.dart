@@ -1,8 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import '../../../core/constant/color.dart';
 
 class QuantityColorItem extends StatelessWidget {
-  const QuantityColorItem({super.key});
+  final void Function()? onAdd;
+  final void Function()? onRemove;
+  final String quantity;
+  const QuantityColorItem({
+    Key? key,
+    required this.quantity,
+    required this.onAdd,
+    required this.onRemove,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +23,7 @@ class QuantityColorItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           InkWell(
+            onTap: onAdd,
             child: Container(
               height: 40,
               width: 45,
@@ -25,7 +36,7 @@ class QuantityColorItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
-              "2",
+              quantity,
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
@@ -33,6 +44,7 @@ class QuantityColorItem extends StatelessWidget {
             ),
           ),
           InkWell(
+            onTap: onRemove,
             child: Container(
               height: 40,
               width: 45,

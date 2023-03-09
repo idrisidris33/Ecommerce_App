@@ -13,6 +13,7 @@ import 'package:ecommerce_app/view/screen/auth/forgetPassword/ressetpassword.dar
 import 'package:ecommerce_app/view/screen/auth/signup.dart';
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/verifycode.dart';
 import 'package:ecommerce_app/view/screen/auth/succes_signup.dart';
+import 'package:ecommerce_app/view/screen/CardchecckoutPage.dart';
 import 'package:ecommerce_app/view/screen/favoriteView.dart';
 import 'package:ecommerce_app/view/screen/itemCat.dart';
 import 'package:ecommerce_app/view/screen/itemDetails.dart';
@@ -71,4 +72,5 @@ List<GetPage<dynamic>>? getroutes = [
 
   ////////////////////////////////////////Settings////////////////////////////////////
   GetPage(name: AppRoute.settings, page: () => const Settings()),
+  GetPage(name: AppRoute.checkoutPage, page: () => const CheckoutPage()),
 ];

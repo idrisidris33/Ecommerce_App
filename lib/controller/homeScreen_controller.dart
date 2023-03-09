@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,6 +6,7 @@ import '../view/screen/Home.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int index);
+  gotocheckoutpage();
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
@@ -43,6 +45,11 @@ class HomeScreenControllerImp extends HomeScreenController {
     Icons.card_giftcard_outlined,
     Icons.access_alarm,
   ];
+  @override
+  gotocheckoutpage() {
+  Get.toNamed(AppRoute.checkoutPage);
+  }
+
   @override
   changePage(int index) {
     currentPage = index;

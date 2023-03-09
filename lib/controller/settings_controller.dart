@@ -8,24 +8,13 @@ class SettingsController extends GetxController {
 
   logout() {
 
-
-  onInit(){
-  
-   Get.defaultDialog(
-          content: const Center(
-        child: CircularProgressIndicator(),
-      ));
-  // Future<void> delay() async {
-     
-  //     print('Sttttttttttttttttttart');
-
-  //     await Future.delayed(const Duration(seconds: 5));
-  //     print('Ennnnnnnnnnnnnnnnnnnnnnnd');
-  //   }
-}
-    
+  /////////////////////////////Make Loading//////////////////////////////
+    Get.dialog(const Center(child: CircularProgressIndicator()));
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.toNamed(AppRoute.login);
+    });
     myServices.sharedPreferences.clear();
-    Get.back();
-    Get.toNamed(AppRoute.login);
+
+  
   }
 }

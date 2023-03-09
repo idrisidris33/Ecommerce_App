@@ -18,7 +18,7 @@ class ItemCat extends GetView<ItemCatControllerImp> {
     FavoriteController controllerFav = Get.put(FavoriteController());
     return Scaffold(
       body: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(10),
           child: GetBuilder<ItemCatControllerImp>(
             builder: (controller) => ListView(
               physics: const BouncingScrollPhysics(),

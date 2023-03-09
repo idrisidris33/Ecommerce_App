@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../controller/homeScreen_controller.dart';
 import '../../controller/home_controller.dart';
+
 import '../widget/HomeWidget.dart/CustomAppBarHome.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,57 +14,59 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
-  HomeControllerImp homecontroller=  Get.put(HomeControllerImp());
+    HomeControllerImp homecontroller = Get.put(HomeControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => Scaffold(
-    //     appBar: AppBar(
-    //     leading: IconButton(onPressed: (){}, icon:   const Icon(Icons.person) ),
-    //     // leadingWidth: 0,
-    //      title: TextFormField(
-    //         maxLines: 1,
-    //         enabled: true,
-    //         autofocus: false,
+        //     appBar: AppBar(
+        //     leading: IconButton(onPressed: (){}, icon:   const Icon(Icons.person) ),
+        //     // leadingWidth: 0,
+        //      title: TextFormField(
+        //         maxLines: 1,
+        //         enabled: true,
+        //         autofocus: false,
 
-    //         style: Theme.of(context).textTheme.bodyLarge,
-    //         cursorHeight: 30,
-            
-    //         decoration: InputDecoration(
-    //             // filled: true,
-    //             // fillColor: Colors.grey[200] ,
-    //             hintText: 'Search',
-    //             prefixIcon: IconButton(
-    //               icon: const Icon(Icons.search),
-    //               onPressed: (){},
-    //               color: AppColor.purple,
-    //             ),
-    //             hoverColor: AppColor.purple,
-    //             iconColor: AppColor.purple,
-    //             border: InputBorder.none
+        //         style: Theme.of(context).textTheme.bodyLarge,
+        //         cursorHeight: 30,
 
-    //             // border: OutlineInputBorder(
+        //         decoration: InputDecoration(
+        //             // filled: true,
+        //             // fillColor: Colors.grey[200] ,
+        //             hintText: 'Search',
+        //             prefixIcon: IconButton(
+        //               icon: const Icon(Icons.search),
+        //               onPressed: (){},
+        //               color: AppColor.purple,
+        //             ),
+        //             hoverColor: AppColor.purple,
+        //             iconColor: AppColor.purple,
+        //             border: InputBorder.none
 
-    //             //     // borderSide: BorderSide.none,
-    //             //     borderRadius: BorderRadius.circular(20))
-    //                 ),
-    //       ),
-    //     actions: [
-    // IconButton(
-    //               onPressed: (){},
-    //               icon: const Icon(
-    //                   color: Colors.white,
-    //                   Icons.notifications_active_outlined)),
-    //       // CustomAppBar(
-    //       //     onpressedSearch: () {},
-    //       //     onpressedNotivication: () {},
-    //       //     onpressedFavorite: () {
-    //       //       homecontroller.gotofavorite();
-    //       //     },
-    //       //     hintText: '1000'.tr),
-    //     ]),
+        //             // border: OutlineInputBorder(
+
+        //             //     // borderSide: BorderSide.none,
+        //             //     borderRadius: BorderRadius.circular(20))
+        //                 ),
+        //       ),
+        //     actions: [
+        // IconButton(
+        //               onPressed: (){},
+        //               icon: const Icon(
+        //                   color: Colors.white,
+        //                   Icons.notifications_active_outlined)),
+        //       // CustomAppBar(
+        //       //     onpressedSearch: () {},
+        //       //     onpressedNotivication: () {},
+        //       //     onpressedFavorite: () {
+        //       //       homecontroller.gotofavorite();
+        //       //     },
+        //       //     hintText: '1000'.tr),
+        //     ]),
         floatingActionButton: FloatingActionButton(
           splashColor: AppColor.purple,
           backgroundColor: AppColor.purple,
-          onPressed: () {},
+          onPressed: () {
+            controller.gotocheckoutpage();
+          },
           child: const Icon(Icons.shopping_basket_outlined),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -94,6 +97,5 @@ class HomeScreen extends StatelessWidget {
         body: controller.body.elementAt(controller.currentPage),
       ),
     );
-    ;
   }
 }

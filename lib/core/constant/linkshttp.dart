@@ -18,11 +18,19 @@ class AppLink {
       "$server/fogetpassword/verifycodeforget.php";
   //=============================== Home ==========================
   static const String home = "$server/home.php";
-  //=============================== Home ==========================
+ //=============================== Home ==========================
   static const String items = "$server/items/itemGet.php";
+   //=============================== FAVORITE ==========================
   static const String removefav = "$server/favorite/removefav.php";
   static const String addfav = "$server/favorite/addfav.php";
   static const String viewfav = "$server/favorite/viewFavorite.php";
-  static const String removefavfromlist = "$server/favorite/removefavfromlist.php";
-  
+  static const String removefavfromlist =
+      "$server/favorite/removefavfromlist.php";
+
+  //=============================== CARD ==========================
+  static const String addcard = "$server/card/add.php";
+  static const String removecard = "$server/card/remove.php";
+  static const String deletecard = "$server/card/delete.php";
+  static const String viewcard = "$server/card/view.php";
+  static const String countitemincard = "$server/card/countitem.php";
 }
