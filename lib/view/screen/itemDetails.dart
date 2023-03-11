@@ -63,7 +63,6 @@ class ItemsDetails extends StatelessWidget {
                                   ),
                                   Text(
                                     "Color",
-                               
                                     textAlign: TextAlign.end,
                                     style: Theme.of(context)
                                         .textTheme
@@ -76,15 +75,14 @@ class ItemsDetails extends StatelessWidget {
                                 height: 14,
                               ),
                               QuantityColorItem(
-                                  quantity: "${controller.countitems}",
-                                  onAdd: () {
-                                    controller.cartcontroller.add(
-                                        controller.itemsModel.iId.toString());
-                                  },
-                                  onRemove: () {
-                                    controller.cartcontroller.remove(
-                                        controller.itemsModel.iId.toString());
-                                  }),
+                                quantity: "${controller.countitems}",
+                                onAdd: () {
+                                  controller.onAdd();
+                                },
+                                onRemove: () {
+                                  controller.onRemove();
+                                },
+                              ),
                               Text(
                                 translateData(
                                     '${controller.itemsModel.iDiscripitonAr}',
@@ -103,7 +101,6 @@ class ItemsDetails extends StatelessWidget {
                               const SizedBox(
                                 height: 100,
                               ),
-                           
                             ],
                           ),
                         )

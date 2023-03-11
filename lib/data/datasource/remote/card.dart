@@ -30,4 +30,11 @@ class CartData {
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  viewCardItem(String usersid) async {
+    var response = await crud.postData(AppLink.viewcard, {
+      'usersid': usersid,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }

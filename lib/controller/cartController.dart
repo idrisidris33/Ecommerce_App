@@ -20,7 +20,7 @@ class CartController extends GetxController {
         // print("///////////////////////////////////////////////////////////");
         // print(response);
         // print("///////////////////////////////////////////////////////////");
-        Get.snackbar("Adding", "This items is alredy add in your favorite");
+        Get.snackbar("Adding", "This items is alredy add in your CARD");
       } else {
         statusReqest == StatusReqest.failure;
       }
@@ -34,7 +34,7 @@ class CartController extends GetxController {
     statusReqest = handlingData(response);
     if (statusReqest == StatusReqest.success) {
       if (response['status'] == 'success') {
-        Get.snackbar("Adding", "This items is alredy add in your favorite");
+        Get.snackbar("Adding", "This items is alredy add in your CARD");
       } else {
         statusReqest = StatusReqest.failure;
       }
@@ -60,8 +60,19 @@ class CartController extends GetxController {
     }
   }
 
+  view() async {
+    statusReqest = StatusReqest.loading;
+    var response = await cartData
+        .viewCardItem(myServices.sharedPreferences.getString('userid')!);
+    statusReqest = handlingData(response);
+    if(statusReqest==StatusReqest.success){
+    if(response['status']=='success'){
+    
+    }
+    }
+  }
+
   delete() {}
-  view() {}
 
   @override
   void onInit() {

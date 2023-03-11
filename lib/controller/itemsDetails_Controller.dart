@@ -4,20 +4,39 @@ import 'package:get/get.dart';
 
 import 'cartController.dart';
 
-abstract class ItemsDetailsCont extends GetxController {}
+abstract class ItemsDetailsCont extends GetxController {
+  onAdd();
+  onRemove();
+}
 
 class ItemsDetailsContImp extends ItemsDetailsCont {
   CartController cartcontroller = Get.put(CartController());
   late ItemsModel itemsModel;
   late StatusReqest statusReqest;
-     int   countitems = 0  ;
-  @override
+  int countitems = 0;
+
   initialData() async {
     statusReqest = StatusReqest.loading;
     itemsModel = Get.arguments['itemsmodel'];
-      countitems = await cartcontroller.getcountitems(itemsModel.iId.toString());
+    countitems = await cartcontroller.getcountitems(itemsModel.iId.toString());
     statusReqest = StatusReqest.success;
     update();
+  }
+
+  @override
+  onAdd() {
+    countitems++;
+    cartcontroller.add(itemsModel.iId.toString());
+    update();
+  }
+
+  @override
+  onRemove() {
+    if (countitems > 0) {
+      countitems--;
+      cartcontroller.remove(itemsModel.iId.toString());
+      update();
+    }
   }
 
   @override
