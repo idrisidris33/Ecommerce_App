@@ -2,14 +2,19 @@ import 'package:ecommerce_app/core/class_package/statusreqest.dart';
 import 'package:ecommerce_app/core/function/handlingdatacontroller.dart';
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/card.dart';
-import 'package:flutter/material.dart';
+import 'package:ecommerce_app/data/model/cardDetailModel.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
   CartData cartData = CartData(Get.find());
   late StatusReqest statusReqest;
   MyServices myServices = Get.find();
+  CardDetailModel cardDetailModel = CardDetailModel();
   int? itemsCount;
+  List<CardDetailModel> itemscard = [];
+  double sumprice = 0.0;
+  int? sumitems;
+
   add(String itemsid) async {
     statusReqest = StatusReqest.loading;
     var response = await cartData.addToCard(
@@ -65,10 +70,18 @@ class CartController extends GetxController {
     var response = await cartData
         .viewCardItem(myServices.sharedPreferences.getString('userid')!);
     statusReqest = handlingData(response);
-    if(statusReqest==StatusReqest.success){
-    if(response['status']=='success'){
-    
-    }
+    if (StatusReqest.success == statusReqest) {
+      if (response['status'] == 'success') {
+        print("//////////////////////////////////////////////////////");
+        print(response);
+        print("//////////////////////////////////////////////////////");
+        Map sumitemprice = response['datasum'];
+        List dataresponse = response['datacard'];
+        itemscard.addAll(dataresponse.map((e) => CardDetailModel.fromJson(e)));
+        sumitems = sumitemprice['totalitem'];
+        sumprice = double.parse(sumitemprice['totalprice']);
+      }
+      update();
     }
   }
 
@@ -76,6 +89,7 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
+    view();
     super.onInit();
   }
 }

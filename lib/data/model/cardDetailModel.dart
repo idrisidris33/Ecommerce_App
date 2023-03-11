@@ -1,5 +1,4 @@
-
-class CardDetail {
+class CardDetailModel {
   String? sumprice;
   int? countitem;
   int? cardId;
@@ -18,7 +17,7 @@ class CardDetail {
   String? iDate;
   int? iCategorie;
 
-  CardDetail(
+  CardDetailModel(
       {this.sumprice,
       this.countitem,
       this.cardId,
@@ -37,7 +36,7 @@ class CardDetail {
       this.iDate,
       this.iCategorie});
 
-  CardDetail.fromJson(Map<String, dynamic> json) {
+  CardDetailModel.fromJson(Map<String, dynamic> json) {
     sumprice = json['sumprice'];
     countitem = json['countitem'];
     cardId = json['card_id'];
