@@ -28,7 +28,7 @@ class BottomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
+      // height: 280,
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(

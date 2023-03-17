@@ -18,12 +18,12 @@ class FavoriteView extends GetView<FavoriteViewController> {
             child: GetBuilder<FavoriteViewController>(
               builder: (controller) =>
                   ListView(physics: const BouncingScrollPhysics(), children: [
-                CustomAppBar(
-                    avatarOnTap: () {},
-                    onpressedSearch: () {},
-                    onpressedFavorite: () {},
-                    onpressedNotivication: () {},
-                    hintText: 'Search on Favorite'),
+                // CustomAppBar(
+                //     avatarOnTap: () {},
+                //     onpressedSearch: () {},
+                //     onpressedFavorite: () {},
+                //     onpressedNotivication: () {},
+                //     hintText: 'Search on Favorite'),
                 HandlingDataView(
                     statusreqest: controller.statusReqest!,
                     widget: GridView.builder(

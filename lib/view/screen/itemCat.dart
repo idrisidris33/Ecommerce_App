@@ -23,12 +23,12 @@ class ItemCat extends GetView<ItemCatControllerImp> {
             builder: (controller) => ListView(
               physics: const BouncingScrollPhysics(),
               children: [
-                CustomAppBar(
-                    avatarOnTap: () {},
-                    onpressedSearch: () {},
-                    onpressedNotivication: () {},
-                    onpressedFavorite: () {},
-                    hintText: '1000'.tr),
+                // CustomAppBar(
+                //     avatarOnTap: () {},
+                //     onpressedSearch: () {},
+                //     onpressedNotivication: () {},
+                //     onpressedFavorite: () {},
+                //     hintText: '1000'.tr),
                 const ItemCatLIst(),
                 HandlingDataView(
                     statusreqest: controller.statusReqest!,

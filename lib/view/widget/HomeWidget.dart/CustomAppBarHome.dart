@@ -7,13 +7,18 @@ class CustomAppBar extends StatelessWidget {
   final void Function()? onpressedNotivication;
   final void Function()? onpressedFavorite;
   final void Function()? onpressedSearch;
+  final void Function(String)? onchangesearch;
+  final TextEditingController searchController;
   final void Function()? avatarOnTap;
+
   final String hintText;
   const CustomAppBar({
     Key? key,
-    required this.onpressedSearch,
-    required this.onpressedFavorite,
     required this.onpressedNotivication,
+    required this.onpressedFavorite,
+    required this.onpressedSearch,
+    required this.onchangesearch,
+    required this.searchController,
     required this.avatarOnTap,
     required this.hintText,
   }) : super(key: key);
@@ -42,6 +47,8 @@ class CustomAppBar extends StatelessWidget {
         SizedBox(
           width: 260,
           child: TextFormField(
+            controller: searchController,
+            onChanged: onchangesearch,
             maxLines: 1,
             enabled: true,
             autofocus: false,
@@ -70,7 +77,6 @@ class CustomAppBar extends StatelessWidget {
         // ),
         SizedBox(
           width: 35,
-      
           child: Padding(
             padding: const EdgeInsets.only(bottom: 5),
             child: IconButton(

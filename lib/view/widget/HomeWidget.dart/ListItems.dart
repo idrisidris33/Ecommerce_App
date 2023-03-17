@@ -15,7 +15,7 @@ class ListItem extends GetView<HomeControllerImp> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       height: 130,
-      width: 100,
+      width: double.infinity,
       child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(
                 width: 10,
