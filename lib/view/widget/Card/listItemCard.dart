@@ -49,7 +49,6 @@ class ListItemsCard extends StatelessWidget {
                     color: AppColor.whitemate.withOpacity(0.4)),
 
                 child: Stack(
-                
                   children: [
                     Row(
                       children: [
@@ -83,7 +82,9 @@ class ListItemsCard extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
+                                      borderRadius: const BorderRadius.only(
+                                          topRight: Radius.circular(15),
+                                          bottomLeft: Radius.circular(15)),
                                       child: Image.network(
                                         imagelink,
                                         height: 110,
@@ -157,7 +158,6 @@ class ListItemsCard extends StatelessWidget {
                       ],
                     ),
                     Positioned(
-
                       right: 10,
                       bottom: 10,
                       child: Row(
@@ -172,7 +172,7 @@ class ListItemsCard extends StatelessWidget {
                                 size: 32,
                               )),
                           Text(
-                             itemCount ,
+                            itemCount,
                             style: Theme.of(context)
                                 .textTheme
                                 .displayLarge!

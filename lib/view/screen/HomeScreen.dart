@@ -94,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                 })
               ],
             )),
-        body: controller.body.elementAt(controller.currentPage),
+        body:SafeArea(child:controller.body.elementAt(controller.currentPage) ,) ,
       ),
     );
   }

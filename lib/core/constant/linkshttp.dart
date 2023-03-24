@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.1.36/ecommerc_PHP";
+  static const String server = "http://192.168.1.35/ecommerc_PHP";
 
   //10.0.2.2
   //192.168.1.37   BOOB I

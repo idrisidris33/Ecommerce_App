@@ -90,7 +90,9 @@ class HomeControllerImp extends HomeController {
     statusReqest = handlingData(response);
     if (statusReqest == StatusReqest.success) {
       if (response['status'] == 'success') {
+        searchList.clear();
         List responseData = response['data'];
+
         searchList.addAll(responseData.map((e) => ItemsModel.fromJson(e)));
       } else {
         statusReqest = StatusReqest.failure;

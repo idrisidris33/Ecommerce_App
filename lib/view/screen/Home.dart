@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:ecommerce_app/controller/home_controller.dart';
 import 'package:ecommerce_app/core/class_package/HandlingData_view.dart';
 import 'package:ecommerce_app/core/function/alertexitapp.dart';
@@ -65,45 +64,53 @@ class HomePage extends StatelessWidget {
                             )
                           ],
                         )
-                      : ListView.builder(
-                          itemCount: controller.searchList.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                // controller.goToPageProductDetails(listdatamodel[index]);
-                              },
-                              child: Container(
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 20),
-                                child: Card(
-                                    child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Row(
-                                    children: [
-                                      // Expanded(
-                                      //     child: CachedNetworkImage(
-                                      //         imageUrl:
-                                      //             "${AppLink.imagestItems}/${listdatamodel[index].itemsImage}")),
-                                      Expanded(
-                                          flex: 2,
-                                          child: ListTile(
-                                            title: Text(controller
-                                                .searchList[index].iName!),
-                                            subtitle: Text(controller
-                                                .searchList[index].cName!),
-                                          )),
-                                    ],
-                                  ),
-                                )),
-                              ),
-                            );
-                          })),
+                      : const SearchPage()),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class SearchPage extends GetView<HomeControllerImp> {
+  const SearchPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: controller.searchList.length,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              // controller.goToPageProductDetails(listdatamodel[index]);
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              child: Card(
+                  child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    // Expanded(
+                    //     child: CachedNetworkImage(
+                    //         imageUrl:
+                    //             "${AppLink.imagestItems}/${listdatamodel[index].itemsImage}")),
+                    Expanded(
+                        flex: 2,
+                        child: ListTile(
+                          title: Text(controller.searchList[index].iName!),
+                          subtitle: Text(controller.searchList[index].cName!),
+                        )),
+                  ],
+                ),
+              )),
+            ),
+          );
+        });
   }
 }

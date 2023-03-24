@@ -14,6 +14,8 @@ class Settings extends StatelessWidget {
     SettingsController settingdController = SettingsController();
     return Scaffold(
         body: ListView(
+        scrollDirection: Axis.vertical,
+      physics: const BouncingScrollPhysics(),
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 15),

@@ -1,4 +1,3 @@
-
 class FavoriteViewModel {
   int? favId;
   int? favItemsId;
@@ -55,23 +54,23 @@ class FavoriteViewModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fav_id'] = this.favId;
-    data['fav_itemsId'] = this.favItemsId;
-    data['fav_usersId'] = this.favUsersId;
-    data['i_id'] = this.iId;
-    data['i_name'] = this.iName;
-    data['i_name_ar'] = this.iNameAr;
-    data['i_discripiton'] = this.iDiscripiton;
-    data['i_discripiton_ar'] = this.iDiscripitonAr;
-    data['i_image'] = this.iImage;
-    data['i_count'] = this.iCount;
-    data['i_active'] = this.iActive;
-    data['i_price'] = this.iPrice;
-    data['i_discount'] = this.iDiscount;
-    data['i_date'] = this.iDate;
-    data['i_categorie'] = this.iCategorie;
-    data['u_id'] = this.uId;
+    final Map<String, dynamic> data =   Map<String, dynamic>();
+    data['fav_id'] = favId;
+    data['fav_itemsId'] = favItemsId;
+    data['fav_usersId'] = favUsersId;
+    data['i_id'] = iId;
+    data['i_name'] = iName;
+    data['i_name_ar'] = iNameAr;
+    data['i_discripiton'] = iDiscripiton;
+    data['i_discripiton_ar'] = iDiscripitonAr;
+    data['i_image'] = iImage;
+    data['i_count'] = iCount;
+    data['i_active'] = iActive;
+    data['i_price'] = iPrice;
+    data['i_discount'] = iDiscount;
+    data['i_date'] = iDate;
+    data['i_categorie'] = iCategorie;
+    data['u_id'] = uId;
     return data;
   }
 }

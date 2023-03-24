@@ -22,6 +22,8 @@ import 'package:ecommerce_app/view/screen/settings/settings.dart';
 
 import 'package:get/get.dart';
 
+import 'empty.dart';
+
 // Map<String, Widget Function(BuildContext)> routes = {
 // //Auth
 //   AppRoute.homepage: (context) => const HomePage(),
@@ -48,7 +50,7 @@ List<GetPage<dynamic>>? getroutes = [
     page: () => const Onboarding(),
     middlewares: [MyMiddlWare()],
   ),
-  // name: "/", page: () => const HomeScreen(),
+  // name: "/", page: () => const Empty(),),
   GetPage(name: AppRoute.signup, page: () => const SignUp()),
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.language, page: () => Language()),

@@ -24,7 +24,34 @@ class TopImageItem extends GetView<ItemsDetailsContImp> {
             bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
         child: Hero(
             tag: "${controller.itemsModel.iId}",
-            child: Image.network("${controller.itemsModel.iImage}")),
+            child:
+            Stack(children: [ Image.network("${controller.itemsModel.iImage}"),
+          if(controller.itemsModel.iDiscount!=0)  Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 35,
+                    width: 45,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          // topRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20)),
+                      color: Colors.red,
+                    ),
+                    child: Center(
+                      child: Text(
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: AppColor.purple),
+                        "${controller.itemsModel.iDiscount}",
+                      ),
+                    ),
+                  )),
+              
+
+            ],)
+          ),
       ),
     );
 
