@@ -5,16 +5,20 @@ import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
   MyServices myServices = Get.find();
+  goLocation() {
+    Get.toNamed(AppRoute.viewLocation);
+  }
+
+  goAddLocation() {
+    Get.toNamed(AppRoute.addLocation);
+  }
 
   logout() {
-
-  /////////////////////////////Make Loading//////////////////////////////
+    /////////////////////////////Make Loading//////////////////////////////
     Get.dialog(const Center(child: CircularProgressIndicator()));
     Future.delayed(const Duration(seconds: 2), () {
       Get.toNamed(AppRoute.login);
     });
     myServices.sharedPreferences.clear();
-
-  
   }
 }

@@ -6,7 +6,9 @@
    <application
         android:label="ecommerce_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher">  
+           <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyB6gWez_736MY4r4v7zfZMT3UdgX10d0mE"/> 
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -32,6 +34,6 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
+            android:value="2" />      
     </application>
 </manifest>

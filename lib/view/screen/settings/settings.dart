@@ -14,7 +14,7 @@ class Settings extends StatelessWidget {
     SettingsController settingdController = SettingsController();
     return Scaffold(
         body: ListView(
-        scrollDirection: Axis.vertical,
+      scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
       children: [
         Padding(
@@ -220,6 +220,45 @@ class Settings extends StatelessWidget {
                 color: AppColor.greycold,
               ),
             ],
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            settingdController.goLocation();
+          },
+          child: Padding(
+            padding:
+                const EdgeInsets.only(right: 25, left: 15, top: 10, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Icon(
+                      Icons.map_outlined,
+                      color: AppColor.greytitle,
+                      size: 28,
+                    ),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    Text(
+                      "Location",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: Colors.black87, fontSize: 14),
+                    ),
+                  ],
+                ),
+                const Icon(
+                  Icons.chevron_right,
+                  color: AppColor.greycold,
+                  size: 26,
+                ),
+              ],
+            ),
           ),
         ),
         Padding(

@@ -33,7 +33,7 @@ class HandlingDataView extends StatelessWidget {
                     ? Center(
                         child: Lottie.asset(AppImageAsset.nodatalottie,
                             repeat: false),
-                      )
+                      ):statusreqest == StatusReqest.none?widget
                     : widget;
   }
 }

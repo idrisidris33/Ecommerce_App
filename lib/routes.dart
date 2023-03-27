@@ -2,6 +2,7 @@ import 'package:ecommerce_app/view/screen/Home.dart';
 import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/middleware/mymiddlewar.dart';
 import 'package:ecommerce_app/view/screen/HomeScreen.dart';
+import 'package:ecommerce_app/view/screen/Location/addLocation.dart';
 
 import 'package:ecommerce_app/view/screen/auth/VerifyCodeSignup.dart';
 
@@ -23,6 +24,7 @@ import 'package:ecommerce_app/view/screen/settings/settings.dart';
 import 'package:get/get.dart';
 
 import 'empty.dart';
+import 'view/screen/Location/viewLocation.dart';
 
 // Map<String, Widget Function(BuildContext)> routes = {
 // //Auth
@@ -46,12 +48,12 @@ List<GetPage<dynamic>>? getroutes = [
   //     page: () => const ItemsDetails(),
   //     ),
   GetPage(
-    //   name: "/",
-    //   page: () => const Onboarding(),
-    //   middlewares: [MyMiddlWare()],
-    // ),
-    name: "/", page: () => const Empty(),
+    name: "/",
+    page: () => const Onboarding(),
+    middlewares: [MyMiddlWare()],
   ),
+  // name: "/", page: () => const Empty(),
+  // ),
   GetPage(name: AppRoute.signup, page: () => const SignUp()),
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.language, page: () => Language()),
@@ -76,4 +78,8 @@ List<GetPage<dynamic>>? getroutes = [
   ////////////////////////////////////////Settings////////////////////////////////////
   GetPage(name: AppRoute.settings, page: () => const Settings()),
   GetPage(name: AppRoute.checkoutPage, page: () => const CheckoutPage()),
+  ////////////////////////////////////////LOCATION////////////////////////////////////
+
+  GetPage(name: AppRoute.viewLocation, page: () => const ViewLocation()),
+  GetPage(name: AppRoute.addLocation, page: () => const ADDLocation()),
 ];

@@ -17,4 +17,9 @@ class AppRoute {
    static const String favoritView = "/favoritView";
    static const String  settings  = "/settings";
    static const String  checkoutPage  = "/checkoutPage";
+   
+   ///////////////////////LOCATION///////////////////////////
+static const String  addLocation  = "/addlocation";
+static const String  viewLocation  = "/viewlocation";
+
 }
