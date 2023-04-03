@@ -21,5 +21,6 @@ class AppRoute {
    ///////////////////////LOCATION///////////////////////////
 static const String  addLocation  = "/addlocation";
 static const String  viewLocation  = "/viewlocation";
+static const String  detailLocation  = "/detaillocation";
 
 }

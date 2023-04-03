@@ -24,6 +24,7 @@ import 'package:ecommerce_app/view/screen/settings/settings.dart';
 import 'package:get/get.dart';
 
 import 'empty.dart';
+import 'view/screen/Location/detailLocation.dart';
 import 'view/screen/Location/viewLocation.dart';
 
 // Map<String, Widget Function(BuildContext)> routes = {
@@ -48,11 +49,11 @@ List<GetPage<dynamic>>? getroutes = [
   //     page: () => const ItemsDetails(),
   //     ),
   GetPage(
-    name: "/",
-    page: () => const Onboarding(),
-    middlewares: [MyMiddlWare()],
-  ),
-  // name: "/", page: () => const Empty(),
+      name: "/",
+      page: () => const Onboarding(),
+      middlewares: [MyMiddlWare()],
+    ),
+  //   name: "/", page: () => const Empty(),
   // ),
   GetPage(name: AppRoute.signup, page: () => const SignUp()),
   GetPage(name: AppRoute.login, page: () => const Login()),
@@ -82,4 +83,5 @@ List<GetPage<dynamic>>? getroutes = [
 
   GetPage(name: AppRoute.viewLocation, page: () => const ViewLocation()),
   GetPage(name: AppRoute.addLocation, page: () => const ADDLocation()),
+  GetPage(name: AppRoute.detailLocation, page: () => const DetailLocation()),
 ];

@@ -13,6 +13,7 @@ class FavoriteView extends GetView<FavoriteViewController> {
   Widget build(BuildContext context) {
     Get.put(FavoriteViewController());
     return Scaffold(
+        appBar: AppBar(),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: GetBuilder<FavoriteViewController>(
