@@ -1,6 +1,10 @@
 import 'dart:async';
 
 import 'package:ecommerce_app/core/constant/routes.dart';
+import 'package:ecommerce_app/core/function/handlingdatacontroller.dart';
+import 'package:ecommerce_app/core/services/services.dart';
+import 'package:ecommerce_app/data/datasource/remote/location.dart';
+import 'package:ecommerce_app/data/model/locationModel.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -31,6 +35,10 @@ class LocationController extends GetxController {
         arguments: {"lat": lat.toString(), "lang": lang.toString()});
   }
 
+  // goAddLocation() {
+  //   Get.toNamed(AppRoute.addLocation);
+  // }
+
   ///////////////////////////////////GET CURRENT POSITION//////////////////////////////
   getPosition() async {
     locationcurrent =
@@ -52,11 +60,17 @@ class LocationController extends GetxController {
       if (cheking == LocationPermission.denied) {
         await Geolocator.requestPermission();
       }
+      if (cheking == LocationPermission.deniedForever) {
+        await Geolocator.requestPermission();
+        // await Geolocator.requestTemporaryFullAccuracy();
+      }
     }
     // await Geolocator.requestPermission();
     // print(curent);
     // print(cheking);
   }
+
+  ///////////////////////////////////View Data//////////////////////////////
 
   @override
   void onInit() {

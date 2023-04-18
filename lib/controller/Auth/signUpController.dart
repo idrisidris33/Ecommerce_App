@@ -31,10 +31,10 @@ class SignupControllerImp extends SignupController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   @override
   void onInit() {
-    FirebaseMessaging.instance.getToken().then((value) {
-      String? token = value;
-      print("============${value}============");
-    });
+    // FirebaseMessaging.instance.getToken().then((value) {
+    //   String? token = value;
+    //   print("============${value}============");
+    // });
 
     email = TextEditingController();
     password = TextEditingController();

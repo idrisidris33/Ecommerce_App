@@ -9,9 +9,7 @@ class SettingsController extends GetxController {
     Get.toNamed(AppRoute.viewLocation);
   }
 
-  goAddLocation() {
-    Get.toNamed(AppRoute.addLocation);
-  }
+ 
 
   logout() {
     /////////////////////////////Make Loading//////////////////////////////

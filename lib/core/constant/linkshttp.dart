@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.1.2/ecommerc_PHP";
+  static const String server = "http://192.168.1.4/ecommerc_PHP";
 
   //10.0.2.2
   //192.168.1.37   BOOB I
@@ -18,10 +18,10 @@ class AppLink {
       "$server/fogetpassword/verifycodeforget.php";
   //=============================== Home ==========================
   static const String home = "$server/home.php";
- //=============================== ITEMS ==========================
+  //=============================== ITEMS ==========================
   static const String items = "$server/items/itemGet.php";
   static const String search = "$server/items/search.php";
-   //=============================== FAVORITE ==========================
+  //=============================== FAVORITE ==========================
   static const String removefav = "$server/favorite/removefav.php";
   static const String addfav = "$server/favorite/addfav.php";
   static const String viewfav = "$server/favorite/viewFavorite.php";
@@ -34,4 +34,9 @@ class AppLink {
   static const String deletecard = "$server/card/delete.php";
   static const String viewcard = "$server/card/view.php";
   static const String countitemincard = "$server/card/countitem.php";
+  //=============================== LOCATION ==========================
+  static const String addLocation = "$server/address/address_add.php";
+  static const String deleteLocation = "$server/address/address_delete.php";
+  static const String updateLocation = "$server/address/address_update.php";
+  static const String viewLocation = "$server/address/address_view.php";
 }

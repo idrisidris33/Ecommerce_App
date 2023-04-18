@@ -106,8 +106,8 @@ class CartController extends GetxController {
 
   refreshPage() async {
     // resetVarCart();
-
-    await view();
+ await view();
+   
   }
 
   @override

@@ -38,13 +38,9 @@ class FavoriteViewController extends GetxController {
 
   removeFav(String favroiteid) {
     // itemsfav.clear();
-    // ignore: unrelated_type_equality_checks
-    itemsfav.removeWhere((element) => element.favId == favroiteid);
-    
-    var response = viewfavoriteData.removefav(favroiteid);
-
+    viewfavoriteData.removefav(favroiteid);
+    itemsfav.removeWhere((element) => element.favId.toString() == favroiteid);
     update();
-
     // End
   }
 

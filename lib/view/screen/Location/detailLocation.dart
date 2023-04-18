@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/controller/detailLocation_controller.dart';
+import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,10 +8,62 @@ class DetailLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DetailLocation_controller detailLocation_controller =
-        Get.put(DetailLocation_controller());
+    DetailLocationcontroller detailLocationcontroller =
+        Get.put(DetailLocationcontroller());
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          detailLocationcontroller.addLocation(
+              detailLocationcontroller.name!.text,
+              detailLocationcontroller.city!.text,
+              detailLocationcontroller.street!.text,
+              detailLocationcontroller.lat!,
+              detailLocationcontroller.lang!);
+          detailLocationcontroller.gotoviewaddress();
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 15),
+          child: Container(
+            height: 65,
+            width: 300,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: AppColor.purple),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Complete',
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayLarge!
+                      .copyWith(color: AppColor.white),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                // Text(
+                //   '${controllercard.sumprice} €',
+                //   style: Theme.of(context)
+                //       .textTheme
+                //       .displayLarge!
+                //       .copyWith(color: AppColor.white),
+                // ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      appBar: AppBar(
+        backgroundColor: AppColor.purple,
+      ),
       body: ListView(children: [
+        Text(detailLocationcontroller.lat!),
+        Text(detailLocationcontroller.lang!),
+        SizedBox(
+          height: 100,
+        ),
         Container(
           // padding: const EdgeInsets.symmetric(horizontal: 20),
           margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -18,7 +71,7 @@ class DetailLocation extends StatelessWidget {
               color: Colors.amberAccent,
               borderRadius: BorderRadius.circular(30)),
           child: TextFormField(
-            controller: detailLocation_controller.city,
+            controller: detailLocationcontroller.city,
             // keyboardType: ,
             // validator: ,
             // obscureText: obscureText == false || obscureText == null
@@ -56,7 +109,7 @@ class DetailLocation extends StatelessWidget {
               color: Colors.amberAccent,
               borderRadius: BorderRadius.circular(30)),
           child: TextFormField(
-            // controller: ,
+            controller: detailLocationcontroller.street,
             // keyboardType: ,
             // validator: ,
             // obscureText: obscureText == false || obscureText == null
@@ -64,7 +117,7 @@ class DetailLocation extends StatelessWidget {
             //     : true,
             // autovalidateMode: AutovalidateMode.always,
             decoration: InputDecoration(
-                hintText: 'City',
+                hintText: 'Street',
                 hintStyle: Theme.of(context)
                     .textTheme
                     .bodyLarge!
@@ -94,7 +147,7 @@ class DetailLocation extends StatelessWidget {
               color: Colors.amberAccent,
               borderRadius: BorderRadius.circular(30)),
           child: TextFormField(
-            // controller: ,
+            controller: detailLocationcontroller.name,
             // keyboardType: ,
             // validator: ,
             // obscureText: obscureText == false || obscureText == null
@@ -102,7 +155,7 @@ class DetailLocation extends StatelessWidget {
             //     : true,
             // autovalidateMode: AutovalidateMode.always,
             decoration: InputDecoration(
-                hintText: 'City',
+                hintText: 'Name',
                 hintStyle: Theme.of(context)
                     .textTheme
                     .bodyLarge!
