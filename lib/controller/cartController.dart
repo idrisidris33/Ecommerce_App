@@ -3,7 +3,10 @@ import 'package:ecommerce_app/core/function/handlingdatacontroller.dart';
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/card.dart';
 import 'package:ecommerce_app/data/model/cardDetailModel.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../data/model/couponModel.dart';
 
 class CartController extends GetxController {
   // ItemsDetailsCont itemsDetailsCont = Get.put(ItemsDetailsContImp());
@@ -12,12 +15,41 @@ class CartController extends GetxController {
   late StatusReqest statusReqest;
   MyServices myServices = Get.find();
   CardDetailModel cardDetailModel = CardDetailModel();
-
+  CouponDataModel couponDataModel = CouponDataModel();
+  late TextEditingController couponController;
   List<CardDetailModel> itemscard = [];
   double sumprice = 0.0;
   int? sumitems;
   // int countitem = 0;
   int? itemsCount;
+  int descountCoupon = 0;
+  String nameCoupon = "";
+
+  afterCoupon() {
+   return sumprice - (sumprice * descountCoupon / 100);
+  }
+
+  checkCoupon() async {
+    statusReqest = StatusReqest.loading;
+    update();
+    var response = await cartData.checkCoupon(couponController.text);
+    statusReqest = handlingData(response);
+    if (statusReqest == StatusReqest.success) {
+      if (response['status'] == 'success') {
+        Map<String, dynamic> dataCoupon = response['data'];
+        couponDataModel = CouponDataModel.fromJson(dataCoupon);
+        descountCoupon = int.parse('${couponDataModel.couponDescount}');
+        nameCoupon = '${couponDataModel.couponName}';
+        print("================================");
+        print("successsssssss");
+        print("================================");
+        print("================================");
+      } else {
+        statusReqest = StatusReqest.failure;
+      }
+    }
+    update();
+  }
 
   getcountitems(String itemsid) async {
     statusReqest = StatusReqest.loading;
@@ -72,7 +104,7 @@ class CartController extends GetxController {
   }
 
   view() async {
-  // refreshPage();
+    // refreshPage();
     statusReqest = StatusReqest.loading;
     update();
     var response = await cartData
@@ -106,15 +138,22 @@ class CartController extends GetxController {
 
   refreshPage() async {
     // resetVarCart();
- await view();
-   
+    await view();
   }
 
   @override
   void onInit() async {
+    couponController = TextEditingController();
     // itemsCount = await getcountitems(cardDetailModel.iId.toString());
     view();
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    couponController.dispose();
+
+    super.dispose();
   }
 
   delete() {}

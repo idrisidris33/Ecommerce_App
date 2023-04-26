@@ -6,6 +6,12 @@ class CartData {
   Crud crud;
   CartData(this.crud);
 
+  checkCoupon(String couponName) async {
+    var response =
+        await crud.postData(AppLink.chekingCoupon, {'couponname': couponName});
+    return response.fold((l) => l, (r) => r);
+  }
+
   addToCard(String usersid, String itemsid) async {
     var response = await crud
         .postData(AppLink.addcard, {'usersid': usersid, 'itemsid': itemsid});

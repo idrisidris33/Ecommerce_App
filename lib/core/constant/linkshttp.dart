@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.1.4/ecommerc_PHP";
+  static const String server = "http://192.168.1.11/ecommerc_PHP";
 
   //10.0.2.2
   //192.168.1.37   BOOB I
@@ -27,7 +27,6 @@ class AppLink {
   static const String viewfav = "$server/favorite/viewFavorite.php";
   static const String removefavfromlist =
       "$server/favorite/removefavfromlist.php";
-
   //=============================== CARD ==========================
   static const String addcard = "$server/card/add.php";
   static const String removecard = "$server/card/remove.php";
@@ -39,4 +38,8 @@ class AppLink {
   static const String deleteLocation = "$server/address/address_delete.php";
   static const String updateLocation = "$server/address/address_update.php";
   static const String viewLocation = "$server/address/address_view.php";
+  //=============================== COUPONE ==========================
+  static const String chekingCoupon = "$server/coupon/checkcoupon.php";
+
+//http://localhost/ecommerc_PHP/coupon/checkcoupon.php
 }
