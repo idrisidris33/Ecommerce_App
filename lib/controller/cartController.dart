@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/class_package/statusreqest.dart';
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/core/function/handlingdatacontroller.dart';
 import 'package:ecommerce_app/core/services/services.dart';
 import 'package:ecommerce_app/data/datasource/remote/card.dart';
@@ -23,10 +24,17 @@ class CartController extends GetxController {
   // int countitem = 0;
   int? itemsCount;
   int descountCoupon = 0;
-  String nameCoupon = "";
+  String? nameCoupon;
+
+  goTochekOut() {
+    Get.toNamed(AppRoute.checkout, arguments: {
+      "totalprice": afterCoupon(),
+      "namecoupon": nameCoupon,
+    });
+  }
 
   afterCoupon() {
-   return sumprice - (sumprice * descountCoupon / 100);
+    return sumprice - (sumprice * descountCoupon / 100);
   }
 
   checkCoupon() async {
@@ -45,7 +53,11 @@ class CartController extends GetxController {
         print("================================");
         print("================================");
       } else {
-        statusReqest = StatusReqest.failure;
+        // Get.snackbar('fhhf', 'fsdfds').show();
+        couponController.clear();
+        nameCoupon = "";
+        descountCoupon = 0;
+        // statusReqest = StatusReqest.failure;
       }
     }
     update();
@@ -152,7 +164,6 @@ class CartController extends GetxController {
   @override
   void dispose() {
     couponController.dispose();
-
     super.dispose();
   }
 

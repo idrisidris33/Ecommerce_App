@@ -26,6 +26,7 @@ import 'package:get/get.dart';
 import 'empty.dart';
 import 'view/screen/Location/detailLocation.dart';
 import 'view/screen/Location/viewLocation.dart';
+import 'view/screen/checkOut.dart';
 
 // Map<String, Widget Function(BuildContext)> routes = {
 // //Auth
@@ -49,10 +50,10 @@ List<GetPage<dynamic>>? getroutes = [
   //     page: () => const ItemsDetails(),
   //     ),
   GetPage(
-      name: "/",
-      page: () => const Onboarding(),
-      middlewares: [MyMiddlWare()],
-    ),
+    name: "/",
+    page: () => const Onboarding(),
+    middlewares: [MyMiddlWare()],
+  ),
   //   name: "/", page: () => const Empty(),
   // ),
   GetPage(name: AppRoute.signup, page: () => const SignUp()),
@@ -79,6 +80,7 @@ List<GetPage<dynamic>>? getroutes = [
   ////////////////////////////////////////Settings////////////////////////////////////
   GetPage(name: AppRoute.settings, page: () => const Settings()),
   GetPage(name: AppRoute.checkoutPage, page: () => const CheckoutPage()),
+  GetPage(name: AppRoute.checkout, page: () =>   CheckOut()),
   ////////////////////////////////////////LOCATION////////////////////////////////////
 
   GetPage(name: AppRoute.viewLocation, page: () => const ViewLocation()),

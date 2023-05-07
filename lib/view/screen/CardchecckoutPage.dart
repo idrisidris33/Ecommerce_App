@@ -149,18 +149,24 @@ class CheckoutPage extends StatelessWidget {
                                   widget: ListView(
                                     children: [
                                       BottomCard(
+                                      // onCheckout:controllercard.goTochekOut() ,
                                           couponController:
                                               controllercard.couponController,
                                           subtotal: 'Subtotal',
                                           priceSubtotal:
                                               '${controllercard.sumprice} \$',
                                           descount: 'Descount',
-                                          nameDescount: controllercard.nameCoupon,
-                                          priceDescount: '${controllercard.descountCoupon} %',
+                                          nameDescount:
+                                              controllercard.nameCoupon == null
+                                                  ? ""
+                                                  : controllercard.nameCoupon!,
+                                          priceDescount:
+                                              '${controllercard.descountCoupon} %',
                                           delivery: 'Delivery',
                                           priceDelivery: 'free',
                                           total: 'Total',
-                                          priceTotal: '${controllercard.afterCoupon()} \$'),
+                                          priceTotal:
+                                              '${controllercard.afterCoupon()} \$'),
                                     ],
                                   ),
                                 )),

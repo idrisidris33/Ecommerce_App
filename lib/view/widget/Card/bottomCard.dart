@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/cartController.dart';
+import '../../../core/class_package/HandlingData_view.dart';
 import '../../../core/constant/color.dart';
 
-class BottomCard extends StatelessWidget {
+class BottomCard extends GetView<CartController> {
   final String subtotal;
   final TextEditingController couponController;
-
+  // final Function()? onCheckout;
   final String priceSubtotal;
   final String nameDescount;
   final String descount;
@@ -20,6 +21,7 @@ class BottomCard extends StatelessWidget {
   final String priceTotal;
   const BottomCard({
     Key? key,
+    // required this.onCheckout,
     required this.subtotal,
     required this.nameDescount,
     required this.couponController,
@@ -46,23 +48,38 @@ class BottomCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                    flex: 2,
-                    child: TextFormField(
-                      controller: couponController,
+            GetBuilder<CartController>(
+                builder: (controllercard) => HandlingDataView(
+                      statusreqest: controllercard.statusReqest,
+                      widget: controllercard.nameCoupon == "" ||
+                              controllercard.nameCoupon == null
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                    flex: 2,
+                                    child: TextFormField(
+                                      controller: couponController,
+                                    )),
+                                Expanded(
+                                    flex: 1,
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          controllercard.checkCoupon();
+                                        },
+                                        child: const Text('hello'))),
+                              ],
+                            )
+                          : Container(
+                              height: 40,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: AppColor.redText),
+                              child: Center(
+                                  child: Text(controllercard.nameCoupon!)),
+                            ),
                     )),
-                Expanded(
-                    flex: 1,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          controllercard.checkCoupon();
-                        },
-                        child: const Text('hello'))),
-              ],
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -95,8 +112,8 @@ class BottomCard extends StatelessWidget {
                       .displayLarge!
                       .copyWith(color: AppColor.white6, fontSize: 14),
                 ),
-                  Text(
-                   nameDescount,
+                Text(
+                  nameDescount,
                   style: Theme.of(context)
                       .textTheme
                       .displayLarge!
@@ -166,6 +183,7 @@ class BottomCard extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 // controllercard.view();
+                controllercard.goTochekOut();
               },
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 15),
